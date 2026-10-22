@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/33819957/README.md)
+[Uploading README.md…]()
 ```markdown
 # 共感娃娃超保姆级教程（整理版）
 
@@ -311,7 +311,7 @@ Arduino IDE 设置中文与开发板管理器网址：
 ### 4.5 创建 Python 运行脚本与 ESP32 最终烧录代码
 
 1. 电脑桌面右键 → 新建 → 文本文档。
-2. 复制下方的【D 电脑端 touch-server 代码】，粘贴进去。
+2. 复制下方的【D 电脑端源码备份】，粘贴进去。
 3. 左上角 文件 → 另存为。
 4. 保持类型：`所有文件（.）`。
 5. 文件名填：`touch-server.py`。后缀不能改，注意用英文符号。
@@ -320,7 +320,7 @@ Arduino IDE 设置中文与开发板管理器网址：
 > 💡 **懒人福利**：如果你觉得手动新建容易出错，可以直接使用资源压缩包里自带的 **`touch-server.py`** 脚本。**（千万注意：不要错拿成手机版的 `touch_server_v2.py` 哦！）**
 
 <details>
-<summary>👉 点击展开：D 电脑端 touch-server 代码</summary>
+<summary>👉 点击展开：D 电脑端源码备份</summary>
 
 ```python
 import http.server
