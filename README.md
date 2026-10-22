@@ -1,3 +1,4 @@
+[Uploading README.md…]()
 ```markdown
 # 共感娃娃超保姆级教程（整理版）
 
@@ -49,17 +50,17 @@
 
 ---
 
-## 1. 实践心得与准备
+## 2. 传感器连接
 
-1. 杜邦线黑色接头有一侧会露出金属。两根杜邦线对接时，露出金属的一面保持同向，连接更稳；接 ESP32 引脚时缺口朝外，接 FSR402 传感器时金属面朝上，都会更牢固。
-2. 杜邦线对接处、传感器引脚位置，都要用胶带缠紧固定，防止松动、断线。
-3. 建议用硬纸板做一块和传感器尺寸相近的厚垫板来固定传感器，避免棉花承受压力。
-4. 记住：**接线时不要通电；重新烧录后记得复位（RST）。**
-5. 烧录一定得是**数据线**。
+### 2.1 总原则
 
-> 仅个人经验分享，硬件操作风险自担。
+每一个传感器至少需要连五根线：
+- 传感器—面包板：①左 供电；②右 信号
+- ESP32—面包板：①电源；②信号；③接地桩
 
----
+先拿一条杜邦线，一头连面包板左上角红色 `+` 号第一格（下称 `+1/+2...`），一头连 ESP32 的 `3V3`。
+
+> 接线、拔线前必须先断电。接完每个阶段建议先做联通测试。
 
 ### 2.2 接线表与示意图
 
@@ -75,8 +76,11 @@
 ![面包板与ESP32合体连线图](./images/combined_wiring.jpg)
 
 *(如果你的显示器够大，也可以参考下方分开的高清大图)*
+
 ![ESP32 S3 引脚连接示意图](./images/esp32_pinout.jpg)
+
 ![面包板连接示意图](./images/breadboard_wiring.jpg)
+
 ### 2.3 垫片制作要点（强烈建议）
 
 建议大家先在传感器上增加硬纸板垫片，塞入玩偶开口处进行调试！棉花会吃掉不少力道，硬纸板垫片可以减缓这点。在棉花上测试也更接近真实数值！
@@ -122,39 +126,6 @@ void loop() {
   
   delay(100); // 每 100 毫秒读取一次
 }
-```
-</details>
-
-<details>
-<summary>👉 点击展开：B 双传感器测试代码</summary>
-
-```cpp
-void setup() {
-  Serial.begin(115200);
-  unsigned long start = millis();
-  while (!Serial && (millis() - start < 5000)) delay(10);
-
-  // 设置接地桩：头顶用 GPIO 15，脸颊用 GPIO 18（配合你现在的接线）
-  pinMode(15, OUTPUT); digitalWrite(15, LOW);
-  pinMode(18, OUTPUT); digitalWrite(18, LOW);
-  
-  analogReadResolution(12);
-  Serial.println("开始测试头顶和脸颊...");
-}
-
-void loop() {
-  int topVal = analogRead(4);   // 头顶，对应 GPIO 4
-  int cheekVal = analogRead(5); // 脸颊，对应 GPIO 5
-  
-  Serial.print("头顶: ");
-  Serial.print(topVal);
-  Serial.print("  |  脸颊: ");
-  Serial.println(cheekVal);
-  
-  delay(200);
-}
-```
-</details>
 
 <details>
 <summary>👉 点击展开：C 四合一测试代码</summary>
