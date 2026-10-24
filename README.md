@@ -246,7 +246,7 @@ Arduino IDE 设置中文与开发板管理器网址：
 
 ### 3.4 选择开发板并设置参数
 
-在 Arduino IDE 顶部菜单栏：工具 → 开发板 → esp32 → 选择 `ESP32S3 Dev Module`。
+在 Arduino IDE 顶部菜单栏：工具 → 开发板 → esp32 → 选择 ：`ESP32S3 Dev Module`。
 
 再次点击工具菜单，对照设置：
 - **USB CDC On Boot：Enable**（必须开，不然串口看不到数据）
