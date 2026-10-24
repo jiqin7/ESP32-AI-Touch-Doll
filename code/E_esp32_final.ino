@@ -10,7 +10,7 @@ const char* SSID = "YOUR_WIFI_SSID";
 const char* PASS = "YOUR_WIFI_PASSWORD";
 
 // ★★★ 填入运行 Python 服务的设备 IP 地址（电脑或手机） ★★★
-const char* HOME = "http://192.168.1.100:9333/hello";
+const char* HOME = "http://你的IPv4地址/hello";
 
 const int PINS[4] = {4, 5, 6, 7};
 const char* KEYS[4] = {"top", "cheek", "chest", "hand"};
